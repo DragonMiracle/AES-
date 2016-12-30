@@ -22,6 +22,7 @@ AES加密解密
 }
 
 /************************************************/
+
    NSData *data = [SecurityUtil encryptAESData:@"123456" app_key:@"1234567812345678"];
     NSLog(@“%@“,data);
 
@@ -42,10 +43,12 @@ AES加密解密
 解密需要用到方法 
 
 //将带密码的data转成string
+
 +(NSString*)decryptAESData:(NSData*)data app_key:(NSString*)key;
 
 需要传入参数data和约定的密码key。
 实际运用过程中，将加密及处理后的字符串 用dataUsingEncoding转换成NSData类型，发现data是10进制的，而不是16进制，造成解密失败。
+
 
 NSData *lastData = [@"D9E0E2B1E622497EB6AA4FD64BF6439A" dataUsingEncoding:NSUTF8StringEncoding];
 NSLog(@“%@“,lastData);
